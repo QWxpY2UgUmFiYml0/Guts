@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const FFMPEG = require('Ffmpeg.js')
 const client = new Discord.Client()
 const ytdl = require('ytdl-core')
 const streamOptions = { seek: 0, volume: 1  }
