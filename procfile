@@ -1,1 +1,0 @@
-worker: node guts.js
