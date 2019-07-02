@@ -11,9 +11,10 @@ client.on('message', (recievedMessage) => {
   if (recievedMessage.author == client.user) {
     return
   }
-//  if (recievedMessage.content.includes('show me dem grasses')) {
-//    message.channel.send('ok', {files: ['./Content/grasses.jpg']})
-//  }
+ if (recievedMessage.content.includes('show me dem grasses')) {
+   const attachment = new Attachment('./Content/grasses.jpg')
+   message.channel.send(attachment)
+ }
   if (recievedMessage.content.includes(client.user.toString())) {
     const voiceChannel = client.channels.get('421347180792512517')
     if (!voiceChannel) return console.error('The channel does not exist')
