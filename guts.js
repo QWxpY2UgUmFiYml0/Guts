@@ -1,4 +1,5 @@
 const { Client, Attachment } = require('discord.js')
+var fs = require('fs')
 
 //new instance of a discord client
 const client = new Client()
@@ -10,7 +11,10 @@ const broadcast = client.createVoiceBroadcast()
 
 
 client.on('ready', () => {
-  console.log('GRIFFIFFF')
+  fs.readFile('./Content/greeting.txt', function (err, data) {
+    if (err) throw err
+    console.log(data)
+  })
 })
 
 client.on('message', message => {
