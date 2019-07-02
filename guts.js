@@ -25,12 +25,24 @@ message.channel.send(attachment)
 })
 
 client.on('message', message => {
+
 if (message.content === '!grasses') {
     const voiceChannel = client.channels.get('421347180792512517')
     if (!voiceChannel) return console.error('The channel does not exist')
     voiceChannel.join()
       .then(connection => {
         const stream = ytdl('https://www.youtube.com/watch?v=ocQ6PDiP014', { filter : 'audioonly' })
+        broadcast.playStream(stream)
+        const dispatcher = connection.playBroadcast(broadcast)
+      })
+      .catch(console.error)
+}
+if ( message.content === '!stug') {
+    const voiceChannel = client.channels.get('421347180792512517')
+    if (!voiceChannel) return console.error('The channel does not exist')
+    voiceChannel.join()
+      .then(connection => {
+        const stream = ytdl('https://www.youtube.com/watch?v=q-aBocBSKSg', { filter : 'audioonly' })
         broadcast.playStream(stream)
         const dispatcher = connection.playBroadcast(broadcast)
       })
