@@ -11,7 +11,7 @@ const broadcast = client.createVoiceBroadcast()
 
 
 client.on('ready', () => {
-  fs.readFile('./Content/greeting.txt', function (err, data) {
+  fs.readFile('./Content/greeting.txt', 'utf8', function (err, data) {
     if (err) throw err
     console.log(data)
   })
@@ -37,7 +37,7 @@ if (message.content === '!grasses') {
       })
       .catch(console.error)
 }
-if ( message.content === '!stug') {
+else if ( message.content === '!stug') {
     const voiceChannel = client.channels.get('421347180792512517')
     if (!voiceChannel) return console.error('The channel does not exist')
     voiceChannel.join()
@@ -52,7 +52,9 @@ if ( message.content === '!stug') {
 
 client.on('message', message => {
 if (message.content === '!help') {
-	message.channel.send('!grasses - play berserk op' + '\n' + 'show me dem grasses - display guts\' profile pic')
+  const content = fs.readFile('./Content/help.md', 'utf8', function (err, data) {
+	message.channel.send(data)
+  })
 }
 })
 
