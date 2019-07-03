@@ -11,7 +11,7 @@ const broadcast = client.createVoiceBroadcast()
 
 
 client.on('ready', () => {
-  fs.readFile('./Content/greeting.txt', 'utf8', function (err, data) {
+  fs.readFile('/home/ubuntu/git/Guts/Content/greeting.txt', 'utf8', function (err, data) {
     if (err) throw err
     console.log(data)
   })
@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
 if (message.content === 'show me dem grasses') {
-const attachment = new Attachment('./Content/grasses.jpg')
+const attachment = new Attachment('/home/ubuntu/git/Guts//Content/grasses.jpg')
 message.channel.send(attachment)
 }
 })
@@ -52,7 +52,7 @@ else if ( message.content === '!stug') {
 
 client.on('message', message => {
 if (message.content === '!help') {
-  const content = fs.readFile('./Content/help.md', 'utf8', function (err, data) {
+  const content = fs.readFile('/home/ubuntu/git/Guts//Content/help.md', 'utf8', function (err, data) {
 	message.channel.send(data)
   })
 }
